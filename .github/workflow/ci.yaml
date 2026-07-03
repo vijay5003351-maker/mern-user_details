@@ -2,10 +2,12 @@ name: build-and-lint
 
 on:
   push:
-    branches: -main
+    branches:
+      - main
 
   pull_request:
-    branches: -main
+    branches:
+      - main
 
 jobs:
   build-and-lint:
@@ -25,7 +27,7 @@ jobs:
 
       - name: lint backend
         working-directory: server
-        run: npm run lint --max-warning=0
+        run: npm run lint -- --max-warning=0
 
       - name: install frontend dependencies
         working-directory: client
@@ -33,10 +35,10 @@ jobs:
 
       - name: lint frontend
         working-directory: client
-        run: npm run lint --max-warnings=0
+        run: npm run lint -- --max-warnings=0
 
       - name: build backend Docker image
-        run: docker build -t backend server
+        run: docker build -t backend ./server
 
       - name: build frontend Docker image
-        run: docker build -t frontend client
+        run: docker build -t frontend ./client
