@@ -1,0 +1,5 @@
+name: build-and-lint
+
+on:
+  push:
+    branches: [main]
