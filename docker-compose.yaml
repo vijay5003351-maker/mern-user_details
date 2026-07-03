@@ -1,0 +1,23 @@
+services:
+
+  server_services:
+    
+    build: ./server
+    container_name: server_services
+    env_file:
+      - ./server/.env
+    ports:
+      - "3000:3000"
+
+
+  client_services:
+
+    build: ./client
+    container_name: client_services
+    env_file:
+      - ./client/.env
+    ports:
+      - "4000:4000"
+    depends_on:
+      - server_services
+
