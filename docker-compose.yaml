@@ -1,7 +1,6 @@
 services:
 
   server_services:
-    
     build: ./server
     container_name: server_services
     env_file:
@@ -11,8 +10,10 @@ services:
 
 
   client_services:
-
-    build: ./client
+    build: 
+      context: ./client
+      args:
+        VITE_APP_API_URL: http://40.192.99.158:3000/api
     container_name: client_services
     env_file:
       - ./client/.env
