@@ -15,8 +15,7 @@ services:
       args:
         VITE_APP_API_URL: http://40.192.99.158:3000/api
     container_name: client_services
-    env_file:
-      - ./client/.env
+  
     ports:
       - "4000:4000"
     depends_on:
