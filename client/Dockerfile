@@ -14,6 +14,6 @@ ENV VITE_APP_API_URL=$VITE_APP_API_URL
 
 RUN npm run build
 
-EXPOSE 4000         
+EXPOSE 5173         
 
 CMD ["npm","run","preview"]
