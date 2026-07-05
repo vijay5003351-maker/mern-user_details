@@ -74,6 +74,11 @@ jobs:
             set -e
             cd "${EC2_APP_DIR}" || exit 1
 
+             if [ ! -d .git ]; then
+             git init
+            git remote add origin https://github.com/vijay5003351-maker/mern-user_details.git
+            fi
+
             # fetch latest code
             git fetch --all
             git reset --hard origin/main
