@@ -64,7 +64,7 @@ jobs:
         env:
           EC2_KEY: ${{ secrets.EC2_KEY }}
 
-      - name: Deploy on EC2
+      - name: Deploy on EC2(git pull + docker up -d --build)
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USER: ${{ secrets.EC2_USER }}
@@ -72,12 +72,8 @@ jobs:
         run: |
           ssh -i ec2_key.pem ${EC2_USER}@${EC2_HOST} << 'EOF'
             set -e
-            cd "${EC2_APP_DIR}" || exit 1
-
-             if [ ! -d .git ]; then
-             git init
-            git remote add origin https://github.com/vijay5003351-maker/mern-user_details.git
-            fi
+            cd "${EC2_APP_DIR}" 
+            
 
             # fetch latest code
             git fetch --all
