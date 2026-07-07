@@ -19,7 +19,7 @@ const InputMask3 = ({
       <div className="relative w-full">
         <Input
           id="password"
-          placeholder="123"
+          placeholder="password"
           className="w-full focus-visible:ring-primary/20 focus-visible:border-primary/50 bg-muted/50 pl-8 focus-visible:ring-2"
           type="password"
           value={password}
